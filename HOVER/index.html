@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Impacto Moderno</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Black', Gadget, sans-serif;
+        }
+
+        body {
+            background-color: #0b132b; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        nav {
+            background-color: transparent;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        li {
+            position: relative;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 40px;
+            text-decoration: none;
+            /* Tamanho 3x maior */
+            font-size: 5.4rem; 
+            text-transform: uppercase;
+            position: relative;
+            
+            /* Texto Vazado Inicial */
+            color: transparent;
+            -webkit-text-stroke: 2px #4a5568; /* Contorno Cinza */
+            
+            /* Gradiente que fará o preenchimento "por dentro" */
+            background-image: linear-gradient(#3a86ff, #3a86ff);
+            background-repeat: no-repeat;
+            background-size: 0% 100%; /* Começa com 0% de preenchimento */
+            -webkit-background-clip: text; /* O fundo só aparece dentro das letras */
+            
+            transition: background-size 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                        -webkit-text-stroke 0.6s ease;
+        }
+
+        /* A Barrinha visível no canto esquerdo */
+        a::before {
+            content: '';
+            position: absolute;
+            top: 15%; /* Ajustado para não tocar no topo/fundo da letra se desejar */
+            left: 0;
+            width: 8px; /* Barrinha azul inicial */
+            height: 70%;
+            background-color: #3a86ff;
+            z-index: 2;
+            transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Efeito ao passar o mouse */
+        a:hover {
+            background-size: 100% 100%; /* Preenche o interior das letras */
+            -webkit-text-stroke: 2px #3a86ff; /* Contorno também fica azul */
+        }
+
+        a:hover::before {
+            /* A barra corre para a direita acompanhando o preenchimento */
+            left: 100%; 
+            width: 4px; /* Opcional: ela afina enquanto corre */
+        }
+
+        /* Ajuste para telas menores não quebrarem o layout */
+        @media (max-width: 768px) {
+            a { font-size: 3rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+</body>
+</html>
